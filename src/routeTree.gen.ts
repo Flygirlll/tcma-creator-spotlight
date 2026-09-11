@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CreatorNetworkRouteImport } from './routes/creator-network'
+import { Route as ForBrandsRouteImport } from './routes/for-brands'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ServicesAffiliateMarketingRouteImport } from './routes/services.affiliate-marketing'
 import { Route as ServicesCreatorPartnershipsRouteImport } from './routes/services.creator-partnerships'
@@ -19,6 +21,16 @@ import { Route as ServicesUgcMarketingRouteImport } from './routes/services.ugc-
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatorNetworkRoute = CreatorNetworkRouteImport.update({
+  id: '/creator-network',
+  path: '/creator-network',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForBrandsRoute = ForBrandsRouteImport.update({
+  id: '/for-brands',
+  path: '/for-brands',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -52,6 +64,8 @@ const ServicesUgcMarketingRoute = ServicesUgcMarketingRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/creator-network': typeof CreatorNetworkRoute
+  '/for-brands': typeof ForBrandsRoute
   '/services': typeof ServicesRouteWithChildren
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -60,6 +74,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/creator-network': typeof CreatorNetworkRoute
+  '/for-brands': typeof ForBrandsRoute
   '/services': typeof ServicesRouteWithChildren
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -69,6 +85,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/creator-network': typeof CreatorNetworkRoute
+  '/for-brands': typeof ForBrandsRoute
   '/services': typeof ServicesRouteWithChildren
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -79,6 +97,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/creator-network'
+    | '/for-brands'
     | '/services'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -87,6 +107,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/creator-network'
+    | '/for-brands'
     | '/services'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -95,6 +117,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/creator-network'
+    | '/for-brands'
     | '/services'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -104,6 +128,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CreatorNetworkRoute: typeof CreatorNetworkRoute
+  ForBrandsRoute: typeof ForBrandsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
 }
 
@@ -114,6 +140,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creator-network': {
+      id: '/creator-network'
+      path: '/creator-network'
+      fullPath: '/creator-network'
+      preLoaderRoute: typeof CreatorNetworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-brands': {
+      id: '/for-brands'
+      path: '/for-brands'
+      fullPath: '/for-brands'
+      preLoaderRoute: typeof ForBrandsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -174,6 +214,8 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CreatorNetworkRoute: CreatorNetworkRoute,
+  ForBrandsRoute: ForBrandsRoute,
   ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
