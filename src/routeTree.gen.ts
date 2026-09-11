@@ -10,33 +10,101 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServicesAffiliateMarketingRouteImport } from './routes/services.affiliate-marketing'
+import { Route as ServicesCreatorPartnershipsRouteImport } from './routes/services.creator-partnerships'
+import { Route as ServicesInfluencerMarketingRouteImport } from './routes/services.influencer-marketing'
+import { Route as ServicesUgcMarketingRouteImport } from './routes/services.ugc-marketing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAffiliateMarketingRoute =
+  ServicesAffiliateMarketingRouteImport.update({
+    id: '/affiliate-marketing',
+    path: '/affiliate-marketing',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCreatorPartnershipsRoute =
+  ServicesCreatorPartnershipsRouteImport.update({
+    id: '/creator-partnerships',
+    path: '/creator-partnerships',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesInfluencerMarketingRoute =
+  ServicesInfluencerMarketingRouteImport.update({
+    id: '/influencer-marketing',
+    path: '/influencer-marketing',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesUgcMarketingRoute = ServicesUgcMarketingRouteImport.update({
+  id: '/ugc-marketing',
+  path: '/ugc-marketing',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
+  '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
+  '/services/influencer-marketing': typeof ServicesInfluencerMarketingRoute
+  '/services/ugc-marketing': typeof ServicesUgcMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
+  '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
+  '/services/influencer-marketing': typeof ServicesInfluencerMarketingRoute
+  '/services/ugc-marketing': typeof ServicesUgcMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
+  '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
+  '/services/influencer-marketing': typeof ServicesInfluencerMarketingRoute
+  '/services/ugc-marketing': typeof ServicesUgcMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/services'
+    | '/services/affiliate-marketing'
+    | '/services/creator-partnerships'
+    | '/services/influencer-marketing'
+    | '/services/ugc-marketing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/services'
+    | '/services/affiliate-marketing'
+    | '/services/creator-partnerships'
+    | '/services/influencer-marketing'
+    | '/services/ugc-marketing'
+  id:
+    | '__root__'
+    | '/'
+    | '/services'
+    | '/services/affiliate-marketing'
+    | '/services/creator-partnerships'
+    | '/services/influencer-marketing'
+    | '/services/ugc-marketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +116,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/affiliate-marketing': {
+      id: '/services/affiliate-marketing'
+      path: '/affiliate-marketing'
+      fullPath: '/services/affiliate-marketing'
+      preLoaderRoute: typeof ServicesAffiliateMarketingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/creator-partnerships': {
+      id: '/services/creator-partnerships'
+      path: '/creator-partnerships'
+      fullPath: '/services/creator-partnerships'
+      preLoaderRoute: typeof ServicesCreatorPartnershipsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/influencer-marketing': {
+      id: '/services/influencer-marketing'
+      path: '/influencer-marketing'
+      fullPath: '/services/influencer-marketing'
+      preLoaderRoute: typeof ServicesInfluencerMarketingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ugc-marketing': {
+      id: '/services/ugc-marketing'
+      path: '/ugc-marketing'
+      fullPath: '/services/ugc-marketing'
+      preLoaderRoute: typeof ServicesUgcMarketingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesAffiliateMarketingRoute: typeof ServicesAffiliateMarketingRoute
+  ServicesCreatorPartnershipsRoute: typeof ServicesCreatorPartnershipsRoute
+  ServicesInfluencerMarketingRoute: typeof ServicesInfluencerMarketingRoute
+  ServicesUgcMarketingRoute: typeof ServicesUgcMarketingRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAffiliateMarketingRoute: ServicesAffiliateMarketingRoute,
+  ServicesCreatorPartnershipsRoute: ServicesCreatorPartnershipsRoute,
+  ServicesInfluencerMarketingRoute: ServicesInfluencerMarketingRoute,
+  ServicesUgcMarketingRoute: ServicesUgcMarketingRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
