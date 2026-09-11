@@ -14,7 +14,90 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      creator_applications: {
+        Row: {
+          audience_size: string
+          available_affiliate: boolean
+          available_influencer: boolean
+          available_ugc: boolean
+          city_region: string
+          consent: boolean
+          content_type: string
+          country: string
+          date_added: string
+          email: string
+          engagement_rate: string | null
+          full_name: string
+          id: string
+          instagram_handle: string | null
+          introduction: string
+          niche: string
+          notes: string
+          other_platform: string | null
+          portfolio_link: string | null
+          previous_brands: string | null
+          primary_audience_location: string
+          rate_range: string | null
+          status: string
+          tiktok_handle: string | null
+          youtube_channel: string | null
+        }
+        Insert: {
+          audience_size: string
+          available_affiliate?: boolean
+          available_influencer?: boolean
+          available_ugc?: boolean
+          city_region: string
+          consent: boolean
+          content_type: string
+          country: string
+          date_added?: string
+          email: string
+          engagement_rate?: string | null
+          full_name: string
+          id?: string
+          instagram_handle?: string | null
+          introduction: string
+          niche: string
+          notes?: string
+          other_platform?: string | null
+          portfolio_link?: string | null
+          previous_brands?: string | null
+          primary_audience_location: string
+          rate_range?: string | null
+          status?: string
+          tiktok_handle?: string | null
+          youtube_channel?: string | null
+        }
+        Update: {
+          audience_size?: string
+          available_affiliate?: boolean
+          available_influencer?: boolean
+          available_ugc?: boolean
+          city_region?: string
+          consent?: boolean
+          content_type?: string
+          country?: string
+          date_added?: string
+          email?: string
+          engagement_rate?: string | null
+          full_name?: string
+          id?: string
+          instagram_handle?: string | null
+          introduction?: string
+          niche?: string
+          notes?: string
+          other_platform?: string | null
+          portfolio_link?: string | null
+          previous_brands?: string | null
+          primary_audience_location?: string
+          rate_range?: string | null
+          status?: string
+          tiktok_handle?: string | null
+          youtube_channel?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
