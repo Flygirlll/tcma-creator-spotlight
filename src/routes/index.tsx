@@ -1,24 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Kicker, Process, ServiceGrid } from '@/components/site/Marketing';
+import hero from '@/assets/tcma-hero.jpg';
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
+export const Route = createFileRoute('/')({
+ head:()=>({meta:[{title:'TCMA | Creator Marketing Agency for Consumer Brands'},{name:'description',content:'TCMA is a strategic creator marketing agency helping consumer brands grow through influencer marketing, UGC, and affiliate partnerships. Book a free strategy call.'},{property:'og:title',content:'TCMA | Creator Marketing Agency for Consumer Brands'},{property:'og:description',content:'Strategic creator marketing for consumer brands ready to grow.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}), component:Home
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+function Home(){return <main>
+ <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-foreground text-background"><img src={hero} alt="Creator filming skincare content on her phone" width={1600} height={1100} className="absolute inset-0 size-full object-cover opacity-55"/><div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/55 to-transparent"/><div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl items-end px-5 pb-16 pt-24 lg:px-8 lg:pb-20"><div className="max-w-4xl"><p className="font-accent text-xl uppercase text-cream">Creator Marketing Agency</p><h1 className="mt-5 font-display text-6xl leading-[.95] md:text-8xl lg:text-9xl">We turn creators into growth channels.</h1><p className="mt-7 max-w-2xl text-base leading-7 text-background/85 md:text-lg">We build and manage creator programs that connect brands with the right creators, content, and partnerships to drive awareness, acquisition, and revenue. Data-informed strategy. Strong creator relationships. Measurable results.</p><div className="mt-9 flex flex-col gap-3 sm:flex-row"><Button asChild size="lg"><Link to="/contact">Book a Free Strategy Call <ArrowRight/></Link></Button><Button asChild variant="outline" size="lg" className="border-background text-background hover:bg-background hover:text-foreground"><Link to="/services">Explore Our Services</Link></Button></div></div></div></section>
+ <section className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:py-28 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><Kicker>What TCMA does</Kicker><div><h2 className="font-display text-5xl leading-tight md:text-7xl">Creators are more than media placements.</h2><p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">Most brands already work with creators in some form. Few have built a system around it. TCMA helps consumer brands turn scattered creator activity into a structured program — one that produces content, drives awareness, supports paid media, and connects to measurable growth. We work across four connected disciplines: creator partnerships, influencer marketing, UGC, and affiliate marketing — one creator ecosystem, not four separate services.</p></div></section>
+ <section className="bg-cream"><div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28"><div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><Kicker>What we do</Kicker><h2 className="mt-4 font-display text-5xl md:text-7xl">Four disciplines.<br/>One creator strategy.</h2></div><Link to="/services" className="flex items-center gap-2 font-accent text-lg uppercase text-primary">View all services <ArrowRight/></Link></div><ServiceGrid/></div></section>
+ <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28"><Kicker>Why TCMA</Kicker><h2 className="mt-4 font-display text-5xl md:text-7xl">Why brands work with TCMA</h2><div className="mt-12 divide-y divide-border border-t border-border">{[['Strategic creator selection',"We don’t select creators by follower count. We look at audience fit, engagement quality, content style, and brand alignment first."],['Relationship-first partnerships','We build relationships designed to extend beyond a single post.'],['Performance mindset','Every creator activity is tied back to a business outcome, not just impressions.'],['Full-service execution',"You don’t need to manage five freelancers and three platforms. We run it as one process."],['Flexible creator access','We source creators across markets, niches, and audience sizes.']].map(([t,b],i)=><div key={t} className="grid gap-4 py-7 md:grid-cols-[80px_1fr_1fr]"><span className="font-accent text-xl text-primary">0{i+1}</span><h3 className="font-display text-2xl">{t}</h3><p className="leading-7 text-muted-foreground">{b}</p></div>)}</div></section>
+ <section className="bg-primary text-primary-foreground"><div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28"><p className="font-accent text-lg uppercase opacity-70">Creator Marketing Ecosystem</p><h2 className="mt-4 max-w-3xl font-display text-5xl md:text-7xl">One creator. Many stages of value.</h2><p className="mt-7 max-w-3xl text-lg leading-8 opacity-85">The strongest creator relationships don’t stay in one lane. A creator partnership can lead to product seeding, UGC, a paid campaign, affiliate partnership, and—over time—a long-term brand ambassador.</p><div className="mt-12 grid gap-px bg-primary-foreground/20 md:grid-cols-3 lg:grid-cols-7">{['Creator Partnership','Product Relationship','UGC Creation','Influencer Campaign','Affiliate Activation','Performance Data','Long-Term Ambassador'].map((x,i)=><div key={x} className="relative bg-primary px-5 py-7"><span className="font-accent text-sm opacity-60">0{i+1}</span><p className="mt-3 font-semibold">{x}</p></div>)}</div><p className="mt-10 font-display text-3xl">TCMA manages this as one system — not four disconnected services.</p></div></section>
+ <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28"><Kicker>Our process</Kicker><h2 className="mt-4 mb-12 font-display text-5xl md:text-7xl">How we work</h2><Process/></section>
+ <section className="border-y border-border bg-cream"><div className="mx-auto max-w-7xl px-5 py-20 lg:px-8"><Kicker>Industries</Kicker><div className="mt-4 grid gap-8 lg:grid-cols-2"><div><h2 className="font-display text-5xl">Who we work with</h2><p className="mt-5 max-w-lg leading-7 text-muted-foreground">TCMA works with consumer brands that have a strong product, an identifiable audience, and a real appetite for creator-led growth.</p></div><div className="flex flex-wrap content-start gap-3">{['Beauty','Skincare','Fashion','Lifestyle','E-commerce','Consumer Technology'].map(x=><span key={x} className="border border-primary px-5 py-3 font-accent text-xl uppercase text-primary">{x}</span>)}</div></div></div></section>
+ <section className="bg-foreground text-background"><div className="mx-auto max-w-7xl px-5 py-20 text-center lg:px-8 lg:py-28"><h2 className="mx-auto max-w-4xl font-display text-5xl md:text-7xl">Ready to build a creator strategy that actually connects to growth?</h2><Button asChild size="lg" className="mt-9"><Link to="/contact">Book a Free Strategy Call <ArrowRight/></Link></Button></div></section>
+ </main>}
