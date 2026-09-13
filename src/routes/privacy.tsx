@@ -130,7 +130,7 @@ function Page() {
     <main>
       <PageHero kicker="Legal" heading="Privacy Policy" />
       <section className="mx-auto max-w-3xl px-5 py-20 lg:px-8">
-        <p className="text-sm uppercase tracking-wide text-muted-foreground">Effective date: [insert date]</p>
+        <p className="text-sm uppercase tracking-wide text-muted-foreground">Effective date: 21/12/2025</p>
         <div className="mt-10 space-y-12">
           {sections.map((s) => (
             <div key={s.title}>
