@@ -19,7 +19,7 @@ const sections: { title: string; blocks: (string | string[])[] }[] = [
   {
     title: '1. Who we are',
     blocks: [
-      'The Creator Marketing Agency ("TCMA," "we," "us," "our") is the data controller responsible for the personal information collected through this website (the "Site"). If you have any questions about this policy or how we handle your information, you can reach us at [insert privacy contact email].',
+      'The Creator Marketing Agency ("TCMA," "we," "us," "our") is the data controller responsible for the personal information collected through this website (the "Site"). If you have any questions about this policy or how we handle your information, you can reach us at hello@thecreatormarketingagency.com.',
     ],
   },
   {
@@ -95,7 +95,7 @@ const sections: { title: string; blocks: (string | string[])[] }[] = [
         'Data portability — receive your data in a structured, commonly used format',
         'Withdraw consent at any time, where processing is based on consent',
       ],
-      'To exercise any of these rights, contact us at [insert privacy contact email]. We will respond within the timeframes required by applicable law.',
+      'To exercise any of these rights, contact us at hello@thecreatormarketingagency.com. We will respond within the timeframes required by applicable law.',
       'If you believe we have not handled your personal information appropriately, you also have the right to lodge a complaint with your local data protection supervisory authority.',
     ],
   },
@@ -120,7 +120,7 @@ const sections: { title: string; blocks: (string | string[])[] }[] = [
   {
     title: '12. Contact us',
     blocks: [
-      'For any questions about this policy or how your personal information is handled, contact us at [insert privacy contact email].',
+      'For any questions about this policy or how your personal information is handled, contact us at hello@thecreatormarketingagency.com.',
     ],
   },
 ];
@@ -130,7 +130,7 @@ function Page() {
     <main>
       <PageHero kicker="Legal" heading="Privacy Policy" />
       <section className="mx-auto max-w-3xl px-5 py-20 lg:px-8">
-        <p className="text-sm uppercase tracking-wide text-muted-foreground">Effective date: [insert date]</p>
+        <p className="text-sm uppercase tracking-wide text-muted-foreground">Effective date: 21/12/2025</p>
         <div className="mt-10 space-y-12">
           {sections.map((s) => (
             <div key={s.title}>
