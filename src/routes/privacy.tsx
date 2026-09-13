@@ -95,7 +95,7 @@ const sections: { title: string; blocks: (string | string[])[] }[] = [
         'Data portability — receive your data in a structured, commonly used format',
         'Withdraw consent at any time, where processing is based on consent',
       ],
-      'To exercise any of these rights, contact us at [insert privacy contact email]. We will respond within the timeframes required by applicable law.',
+      'To exercise any of these rights, contact us at hello@thecreatormarketingagency.com. We will respond within the timeframes required by applicable law.',
       'If you believe we have not handled your personal information appropriately, you also have the right to lodge a complaint with your local data protection supervisory authority.',
     ],
   },
