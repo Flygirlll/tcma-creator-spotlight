@@ -17,7 +17,6 @@ import { Route as CreatorNetworkRouteImport } from './routes/creator-network'
 import { Route as ForBrandsRouteImport } from './routes/for-brands'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CreatorNetworkApplyRouteImport } from './routes/creator-network.apply'
 import { Route as ServicesAffiliateMarketingRouteImport } from './routes/services.affiliate-marketing'
 import { Route as ServicesCreatorPartnershipsRouteImport } from './routes/services.creator-partnerships'
@@ -64,11 +63,6 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CreatorNetworkApplyRoute = CreatorNetworkApplyRouteImport.update({
   id: '/apply',
   path: '/apply',
@@ -107,7 +101,6 @@ export interface FileRoutesByFullPath {
   '/for-brands': typeof ForBrandsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
-  '/terms': typeof TermsRoute
   '/creator-network/apply': typeof CreatorNetworkApplyRoute
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -123,7 +116,6 @@ export interface FileRoutesByTo {
   '/for-brands': typeof ForBrandsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
-  '/terms': typeof TermsRoute
   '/creator-network/apply': typeof CreatorNetworkApplyRoute
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -140,7 +132,6 @@ export interface FileRoutesById {
   '/for-brands': typeof ForBrandsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
-  '/terms': typeof TermsRoute
   '/creator-network/apply': typeof CreatorNetworkApplyRoute
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -158,7 +149,6 @@ export interface FileRouteTypes {
     | '/for-brands'
     | '/privacy'
     | '/services'
-    | '/terms'
     | '/creator-network/apply'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -174,7 +164,6 @@ export interface FileRouteTypes {
     | '/for-brands'
     | '/privacy'
     | '/services'
-    | '/terms'
     | '/creator-network/apply'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -190,7 +179,6 @@ export interface FileRouteTypes {
     | '/for-brands'
     | '/privacy'
     | '/services'
-    | '/terms'
     | '/creator-network/apply'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -207,7 +195,6 @@ export interface RootRouteChildren {
   ForBrandsRoute: typeof ForBrandsRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRouteWithChildren
-  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -266,13 +253,6 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/creator-network/apply': {
@@ -352,7 +332,6 @@ const rootRouteChildren: RootRouteChildren = {
   ForBrandsRoute: ForBrandsRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRouteWithChildren,
-  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
