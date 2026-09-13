@@ -120,7 +120,7 @@ const sections: { title: string; blocks: (string | string[])[] }[] = [
   {
     title: '12. Contact us',
     blocks: [
-      'For any questions about this policy or how your personal information is handled, contact us at [insert privacy contact email].',
+      'For any questions about this policy or how your personal information is handled, contact us at hello@thecreatormarketingagency.com.',
     ],
   },
 ];
