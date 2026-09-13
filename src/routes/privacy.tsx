@@ -19,7 +19,7 @@ const sections: { title: string; blocks: (string | string[])[] }[] = [
   {
     title: '1. Who we are',
     blocks: [
-      'The Creator Marketing Agency ("TCMA," "we," "us," "our") is the data controller responsible for the personal information collected through this website (the "Site"). If you have any questions about this policy or how we handle your information, you can reach us at [insert privacy contact email].',
+      'The Creator Marketing Agency ("TCMA," "we," "us," "our") is the data controller responsible for the personal information collected through this website (the "Site"). If you have any questions about this policy or how we handle your information, you can reach us at hello@thecreatormarketingagency.com.',
     ],
   },
   {
