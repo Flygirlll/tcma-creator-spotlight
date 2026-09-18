@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/tcma-logo.png.asset.json';
+const logo = { url: '/tcma-logo.png' };
 
 const links = [['Services','/services'],['For Brands','/for-brands'],['Creator Network','/creator-network'],['About','/about']] as const;
 
