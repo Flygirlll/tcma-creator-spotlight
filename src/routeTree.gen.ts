@@ -17,6 +17,7 @@ import { Route as CreatorNetworkRouteImport } from './routes/creator-network'
 import { Route as ForBrandsRouteImport } from './routes/for-brands'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as CreatorNetworkApplyRouteImport } from './routes/creator-network.apply'
 import { Route as ServicesAffiliateMarketingRouteImport } from './routes/services.affiliate-marketing'
 import { Route as ServicesCreatorPartnershipsRouteImport } from './routes/services.creator-partnerships'
@@ -63,6 +64,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CreatorNetworkApplyRoute = CreatorNetworkApplyRouteImport.update({
   id: '/apply',
   path: '/apply',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/for-brands': typeof ForBrandsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/creator-network/apply': typeof CreatorNetworkApplyRoute
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/for-brands': typeof ForBrandsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/creator-network/apply': typeof CreatorNetworkApplyRoute
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/for-brands': typeof ForBrandsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/creator-network/apply': typeof CreatorNetworkApplyRoute
   '/services/affiliate-marketing': typeof ServicesAffiliateMarketingRoute
   '/services/creator-partnerships': typeof ServicesCreatorPartnershipsRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/for-brands'
     | '/privacy'
     | '/services'
+    | '/sitemap.xml'
     | '/creator-network/apply'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
     | '/for-brands'
     | '/privacy'
     | '/services'
+    | '/sitemap.xml'
     | '/creator-network/apply'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -179,6 +190,7 @@ export interface FileRouteTypes {
     | '/for-brands'
     | '/privacy'
     | '/services'
+    | '/sitemap.xml'
     | '/creator-network/apply'
     | '/services/affiliate-marketing'
     | '/services/creator-partnerships'
@@ -195,6 +207,7 @@ export interface RootRouteChildren {
   ForBrandsRoute: typeof ForBrandsRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -253,6 +266,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/creator-network/apply': {
@@ -332,6 +352,7 @@ const rootRouteChildren: RootRouteChildren = {
   ForBrandsRoute: ForBrandsRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
