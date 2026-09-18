@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Kicker, Process, ServiceGrid } from '@/components/site/Marketing';
 import creatorIllustration from '@/assets/tcma-creator-illustration.png';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/')({staticData:{sitemap:true},
  head:()=>({meta:[{title:'TCMA | Creator Marketing Agency for Consumer Brands'},{name:'description',content:'TCMA is a strategic creator marketing agency helping consumer brands grow through influencer marketing, UGC, and affiliate partnerships. Book a free strategy call.'},{property:'og:title',content:'TCMA | Creator Marketing Agency for Consumer Brands'},{property:'og:description',content:'Strategic creator marketing for consumer brands ready to grow.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}), component:Home
 });
 function Home(){return <main>
