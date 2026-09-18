@@ -10,8 +10,8 @@ export function Header(){
  const [open,setOpen]=useState(false);
  return <>
   <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-    <div className="mx-auto flex h-28 max-w-7xl items-center justify-between px-5 lg:h-36 lg:px-8">
-     <Link to="/" aria-label="TCMA home"><img src={logo.url} alt="The Creator Marketing Agency" className="h-[4.6rem] w-auto md:h-[5.5rem]" /></Link>
+    <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:h-24 lg:px-8">
+     <Link to="/" aria-label="TCMA home"><img src={logo.url} alt="The Creator Marketing Agency" className="h-12 w-auto md:h-16" /></Link>
     <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
      {links.map(([label,to])=><Link key={to} to={to} activeProps={{className:'text-primary'}} className="font-accent text-lg uppercase text-foreground transition-colors hover:text-primary">{label}</Link>)}
      <Button asChild size="lg"><Link to="/contact">Book a Free Strategy Call <ArrowUpRight /></Link></Button>
